@@ -1,28 +1,19 @@
-import React, { useState } from 'react';
+import "./styles.css";
+import React, { useState } from "react";
+import Field from "./components/field";
+import Languages from "./components/languages";
+import Translate from "./components/translate";
 
-import GoalList from './components/GoalList/GoalList';
-import NewGoal from './components/NewGoal/NewGoal';
-import './App.css';
-
-const App = () => {
-  const [courseGoals, setCourseGoals] = useState([
-    { id: 'cg1', text: 'Finish the Course' },
-    { id: 'cg2', text: 'Learn all about the Course Main Topic' },
-    { id: 'cg3', text: 'Help other students in the Course Q&A' }
-  ]);
-
-  const addNewGoalHandler = newGoal => {
-    // setCourseGoals(courseGoals.concat(newGoal));
-    setCourseGoals(prevCourseGoals => prevCourseGoals.concat(newGoal));
-  };
+export default function App() {
+  const [language, setLanguage] = useState("ru");
+  const [text, setText] = useState("");
 
   return (
-    <div className="course-goals">
-      <h2>Course Goals</h2>
-      <NewGoal onAddGoal={addNewGoalHandler} />
-      <GoalList goals={courseGoals} />
+    <div>
+      <Field label="Enter English" onChange={setText} value={text} />
+      <Languages language={language} onLanguageChange={setLanguage} />
+      <hr />
+      <Translate text={text} language={language} />
     </div>
   );
-};
-
-export default App;
+}
