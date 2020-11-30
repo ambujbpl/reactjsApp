@@ -1,13 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => {
-  window.navigator.geolocation.getCurrentPosition(
-    position => console.log(position),
-    err => console.log(err)
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return <div>Hi there!</div>;
-};
+    // THIS IS THE ONLY TIME we do direct assignment
+    // to this.state
+    this.state = { lat: null, errorMessage: '' };
+
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => {
+        // we called setstate!!!!
+        this.setState({ lat: position.coords.latitude });
+      },
+      (err) => {
+        this.setState({ errorMessage: err.message });
+      }
+    );
+  }
+
+  // React says we have to define render!!
+  render() {
+    return (
+      <div>
+        Latitude: {this.state.lat}
+        <br />
+        Error: {this.state.errorMessage}
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(<App />, document.querySelector('#root'));
