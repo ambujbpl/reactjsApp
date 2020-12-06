@@ -20,7 +20,9 @@ const Search = () => {
       setResults(data.query.search);
     };
 
-    search();
+    if (term) {
+      search();
+    }
   }, [term]);
 
   const renderedResults = results.map((result) => {
@@ -36,7 +38,7 @@ const Search = () => {
         </div>
         <div className="content">
           <div className="header">{result.title}</div>
-          <span danadd gerouslySetInnerHTML={{ __html: result.snippet }}></span>
+          <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
         </div>
       </div>
     );
