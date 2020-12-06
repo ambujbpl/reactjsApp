@@ -1,4 +1,3 @@
-import { even } from 'check-types';
 import React, { useState, useEffect } from 'react';
 
 const SearchBar = props => {
