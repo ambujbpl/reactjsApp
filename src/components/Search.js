@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Search = () => {
-  const [term, setTerm] = useState('programming');
+  const [term, setTerm] = useState('');
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -32,6 +32,7 @@ const Search = () => {
           <a
             className="ui button"
             href={`https://en.wikipedia.org?curid=${result.pageid}`}
+            target="_blank"
           >
             Go
           </a>
