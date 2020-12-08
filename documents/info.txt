@@ -1,3 +1,0 @@
-In this course, you will frequently see my code 'jump', or reformat itself whenever I save a file.  This is done automatically by https://prettier.io/
-
-Using Command Palette (CMD/CTRL + Shift + P)
