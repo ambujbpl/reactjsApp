@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, HashRouter, MemoryRouter, Route, Link } from 'react-router-dom';
 
 const PageOne = () => {
   return (
@@ -21,13 +21,31 @@ const PageTwo = () => {
 
 const App = () => {
   return (
+    // <div>
+    //   <BrowserRouter>
+    //     <div>
+    //       <Route path="/" exact component={PageOne} />
+    //       <Route path="/pagetwo" component={PageTwo} />
+    //     </div>
+    //   </BrowserRouter>
+    // </div>
+    
+    // <div>
+    //   <HashRouter>
+    //     <div>
+    //       <Route path="/" exact component={PageOne} />
+    //       <Route path="/pagetwo" component={PageTwo} />
+    //     </div>
+    //   </HashRouter>
+    // </div>
+
     <div>
-      <BrowserRouter>
+      <MemoryRouter>
         <div>
           <Route path="/" exact component={PageOne} />
           <Route path="/pagetwo" component={PageTwo} />
         </div>
-      </BrowserRouter>
+      </MemoryRouter>
     </div>
   );
 };
