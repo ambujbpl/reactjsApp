@@ -1,3 +1,9 @@
 {
-	"streams": []
+  "streams": [
+    {
+      "title": "Ambuj Sreams",
+      "description": "It's really cool",
+      "id": 1
+    }
+  ]
 }
